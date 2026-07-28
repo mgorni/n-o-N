@@ -17,8 +17,8 @@ function setupOrderForm() {
   const properties = PropertiesService.getScriptProperties();
   // Arkusze czytamy przed jakąkolwiek zmianą formularza: gdy odczyt się nie
   // powiedzie, opublikowany formularz pozostaje nietknięty.
-  const sections = readMenuSections_(properties);
-  if (!sections.some(section => section.groups.length)) throw new Error('Brak aktywnych pozycji menu. Uzupełnij arkusze i właściwości skryptu (MENU_SHEET_ID, SEASONAL_SHEET_ID, LUNCH_SHEET_ID).');
+  const sections = readMenuSections_();
+  if (!sections.some(section => section.groups.length)) throw new Error('Brak aktywnych pozycji menu. Uzupełnij arkusze menu.');
   let form = null;
   const formId = properties.getProperty('ORDER_FORM_ID');
   if (formId) {
@@ -41,9 +41,9 @@ function setupOrderForm() {
   Logger.log('Arkusz odpowiedzi: https://docs.google.com/spreadsheets/d/%s', destinationId);
 }
 
-function readMenuSections_(properties) {
+function readMenuSections_() {
   return MENU_SECTIONS.map(section => {
-    const sheetId = properties.getProperty(PROPERTY_NAMES[section.type]);
+    const sheetId = menuSheetId_(section.type);
     return {label: section.label, groups: sheetId ? readMenuSpreadsheet_(sheetId) : []};
   });
 }

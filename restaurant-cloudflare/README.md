@@ -42,10 +42,7 @@ Menu lunchowe zawiera wiersze przykładowe z `Aktywne = nie` – po wpisaniu pra
 
 1. Utwórz nowy projekt Apps Script (script.google.com) na tym samym koncie Google, na którym są arkusze.
 2. Wklej `google-apps-script/Code.gs`, `google-apps-script/OrderForm.gs` i `appsscript.json`.
-3. W ustawieniach projektu dodaj właściwości skryptu:
-   - `MENU_SHEET_ID` = `1rbsy_LTrQpMou2b0mHdFtgpIduT9EHvAScWYC_kkgWM`
-   - `SEASONAL_SHEET_ID` = `1jh0NNFqM5M3ekrPkv5MS7ljTfr9CeRLOHcw6DLf4OkY`
-   - `LUNCH_SHEET_ID` = `19QXSmZqUhQ6w6rwkdPVhJ-VzNa6iXz7ckxDJaNC3SQ0`
+3. Identyfikatory arkuszy są wpisane w `Code.gs` (`DEFAULT_SHEET_IDS`); w razie potrzeby można je nadpisać właściwościami skryptu `MENU_SHEET_ID`, `SEASONAL_SHEET_ID`, `LUNCH_SHEET_ID` bez zmiany kodu.
 4. Wdróż jako aplikację internetową wykonywaną jako właściciel, z dostępem dla każdego użytkownika mającego link.
 5. Skopiuj adres wdrożenia kończący się `/exec`.
 

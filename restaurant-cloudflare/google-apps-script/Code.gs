@@ -1,15 +1,25 @@
 const TYPES = ['fixed', 'lunch', 'seasonal'];
 const PROPERTY_NAMES = {fixed:'MENU_SHEET_ID', lunch:'LUNCH_SHEET_ID', seasonal:'SEASONAL_SHEET_ID'};
+// Identyfikatory arkuszy utworzonych na koncie restauracji; właściwości
+// skryptu (PROPERTY_NAMES) pozwalają je nadpisać bez zmiany kodu.
+const DEFAULT_SHEET_IDS = {
+  fixed:'1rbsy_LTrQpMou2b0mHdFtgpIduT9EHvAScWYC_kkgWM',
+  seasonal:'1jh0NNFqM5M3ekrPkv5MS7ljTfr9CeRLOHcw6DLf4OkY',
+  lunch:'19QXSmZqUhQ6w6rwkdPVhJ-VzNa6iXz7ckxDJaNC3SQ0'
+};
+
+function menuSheetId_(type) {
+  return PropertiesService.getScriptProperties().getProperty(PROPERTY_NAMES[type]) || DEFAULT_SHEET_IDS[type] || '';
+}
 
 function doGet() {
   try {
     const cache = CacheService.getScriptCache();
     const cached = cache.get('menu-v2');
     if (cached) return output_(cached);
-    const properties = PropertiesService.getScriptProperties();
     const menus = {};
     TYPES.forEach(type => {
-      const id = properties.getProperty(PROPERTY_NAMES[type]);
+      const id = menuSheetId_(type);
       menus[type] = id ? readMenuSpreadsheet_(id) : [];
     });
     const result = JSON.stringify({updatedAt:new Date().toISOString(), source:'google-sheets', menus});
