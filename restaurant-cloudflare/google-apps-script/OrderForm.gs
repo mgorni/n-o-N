@@ -15,6 +15,10 @@ const MENU_SECTIONS = [
  */
 function setupOrderForm() {
   const properties = PropertiesService.getScriptProperties();
+  // Arkusze czytamy przed jakąkolwiek zmianą formularza: gdy odczyt się nie
+  // powiedzie, opublikowany formularz pozostaje nietknięty.
+  const sections = readMenuSections_(properties);
+  if (!sections.some(section => section.groups.length)) throw new Error('Brak aktywnych pozycji menu. Uzupełnij arkusze i właściwości skryptu (MENU_SHEET_ID, SEASONAL_SHEET_ID, LUNCH_SHEET_ID).');
   let form = null;
   const formId = properties.getProperty('ORDER_FORM_ID');
   if (formId) {
@@ -25,13 +29,23 @@ function setupOrderForm() {
     properties.setProperty('ORDER_FORM_ID', form.getId());
   }
   configureForm_(form);
-  rebuildFormItems_(form, properties);
+  syncFormItems_(form, buildDesiredItems_(sections));
   const destinationId = ensureDestination_(form);
+  // Od lipca 2026 formularze tworzone przez API są domyślnie nieopublikowane;
+  // bez setPublished(true) klienci zobaczą stronę „formularz niedostępny”.
+  if (typeof form.setPublished === 'function' && !form.isPublished()) form.setPublished(true);
   const embedUrl = form.getPublishedUrl().replace('/viewform', '/viewform?embedded=true');
   Logger.log('Formularz (edycja): %s', form.getEditUrl());
   Logger.log('Formularz (dla klientów): %s', form.getPublishedUrl());
   Logger.log('Adres dla config.js (orderFormUrl): %s', embedUrl);
   Logger.log('Arkusz odpowiedzi: https://docs.google.com/spreadsheets/d/%s', destinationId);
+}
+
+function readMenuSections_(properties) {
+  return MENU_SECTIONS.map(section => {
+    const sheetId = properties.getProperty(PROPERTY_NAMES[section.type]);
+    return {label: section.label, groups: sheetId ? readMenuSpreadsheet_(sheetId) : []};
+  });
 }
 
 function configureForm_(form) {
@@ -45,43 +59,79 @@ function configureForm_(form) {
     .setConfirmationMessage('Dziękujemy! Potwierdzimy zamówienie telefonicznie. W razie pytań: 573 515 121.');
 }
 
-function rebuildFormItems_(form, properties) {
-  form.getItems().forEach(item => form.deleteItem(item));
-
-  form.addTextItem().setTitle('Imię i nazwisko').setRequired(true);
-  const phone = form.addTextItem().setTitle('Telefon kontaktowy').setHelpText('Pod ten numer potwierdzimy zamówienie.').setRequired(true);
-  phone.setValidation(FormApp.createTextValidation().setHelpText('Podaj numer telefonu, np. 573 515 121.').requireTextMatchesPattern('[+]?[0-9][0-9 \\-]{7,14}').build());
-  const delivery = form.addMultipleChoiceItem().setTitle('Sposób odbioru').setRequired(true);
-  delivery.setChoices([
-    delivery.createChoice('Dostawa na adres'),
-    delivery.createChoice('Odbiór osobisty w restauracji')
-  ]);
-  form.addParagraphTextItem().setTitle('Adres dostawy').setHelpText('Ulica, numer domu i mieszkania, piętro, kod do bramy. Przy odbiorze osobistym zostaw puste.');
-  form.addTextItem().setTitle('Preferowana godzina').setHelpText('Np. „jak najszybciej” albo konkretna godzina.');
-
-  let addedAnyDish = false;
-  MENU_SECTIONS.forEach(section => {
-    const sheetId = properties.getProperty(PROPERTY_NAMES[section.type]);
-    if (!sheetId) return;
-    const groups = readMenuSpreadsheet_(sheetId);
-    if (!groups.length) return;
-    form.addSectionHeaderItem().setTitle(section.label);
-    groups.forEach(group => {
-      const checkbox = form.addCheckboxItem().setTitle(section.label + ' – ' + group.category);
-      checkbox.setChoices(group.items.map(item => checkbox.createChoice(item.price ? item.name + ' – ' + item.price : item.name)));
-      addedAnyDish = true;
+function buildDesiredItems_(sections) {
+  const items = [];
+  items.push({type:'TEXT', title:'Imię i nazwisko', required:true});
+  items.push({type:'TEXT', title:'Telefon kontaktowy', helpText:'Pod ten numer potwierdzimy zamówienie.', required:true, validationPattern:'[+]?[0-9][0-9 \\-]{7,14}', validationHelp:'Podaj numer telefonu, np. 573 515 121.'});
+  items.push({type:'MULTIPLE_CHOICE', title:'Sposób odbioru', required:true, choices:['Dostawa na adres', 'Odbiór osobisty w restauracji']});
+  items.push({type:'PARAGRAPH_TEXT', title:'Adres dostawy', helpText:'Ulica, numer domu i mieszkania, piętro, kod do bramy. Przy odbiorze osobistym zostaw puste.'});
+  items.push({type:'TEXT', title:'Preferowana godzina', helpText:'Np. „jak najszybciej” albo konkretna godzina.'});
+  sections.forEach(section => {
+    if (!section.groups.length) return;
+    items.push({type:'SECTION_HEADER', title:section.label});
+    section.groups.forEach(group => {
+      items.push({type:'CHECKBOX', title:section.label + ' – ' + group.category, choices:group.items.map(item => item.price ? item.name + ' – ' + item.price : item.name)});
     });
   });
-  if (!addedAnyDish) throw new Error('Brak aktywnych pozycji menu. Uzupełnij arkusze i właściwości skryptu (MENU_SHEET_ID, SEASONAL_SHEET_ID, LUNCH_SHEET_ID).');
+  items.push({type:'PARAGRAPH_TEXT', title:'Ilości i uwagi', helpText:'Np. „2× Margherita, 1× Tiramisu”. Puste pole oznacza po jednej sztuce każdej zaznaczonej pozycji.'});
+  items.push({type:'MULTIPLE_CHOICE', title:'Płatność przy odbiorze', required:true, choices:['Gotówka przy odbiorze', 'Karta przy odbiorze']});
+  items.push({type:'CHECKBOX', title:'Zgoda na przetwarzanie danych', required:true, choices:['Wyrażam zgodę na przetwarzanie moich danych osobowych w celu realizacji zamówienia.']});
+  return items;
+}
 
-  form.addParagraphTextItem().setTitle('Ilości i uwagi').setHelpText('Np. „2× Margherita, 1× Tiramisu”. Puste pole oznacza po jednej sztuce każdej zaznaczonej pozycji.');
-  const payment = form.addMultipleChoiceItem().setTitle('Płatność przy odbiorze').setRequired(true);
-  payment.setChoices([
-    payment.createChoice('Gotówka przy odbiorze'),
-    payment.createChoice('Karta przy odbiorze')
-  ]);
-  const consent = form.addCheckboxItem().setTitle('Zgoda na przetwarzanie danych').setRequired(true);
-  consent.setChoices([consent.createChoice('Wyrażam zgodę na przetwarzanie moich danych osobowych w celu realizacji zamówienia.')]);
+// Kolumny w arkuszu odpowiedzi są powiązane z identyfikatorami pytań, nie z
+// tytułami. Dlatego istniejące pytania aktualizujemy w miejscu (setChoices),
+// zamiast kasować i tworzyć od nowa – inaczej każda synchronizacja dokładałaby
+// do arkusza odpowiedzi nowy blok zduplikowanych kolumn.
+function syncFormItems_(form, specs) {
+  const unused = form.getItems().slice();
+  specs.forEach((spec, index) => {
+    const matchIndex = unused.findIndex(candidate => candidate.getType() === FormApp.ItemType[spec.type] && candidate.getTitle() === spec.title);
+    const item = matchIndex >= 0 ? unused.splice(matchIndex, 1)[0] : createItem_(form, spec);
+    applySpec_(item, spec);
+    form.moveItem(item, index);
+  });
+  unused.forEach(item => form.deleteItem(item));
+}
+
+function createItem_(form, spec) {
+  let created;
+  switch (spec.type) {
+    case 'TEXT': created = form.addTextItem(); break;
+    case 'PARAGRAPH_TEXT': created = form.addParagraphTextItem(); break;
+    case 'MULTIPLE_CHOICE': created = form.addMultipleChoiceItem(); break;
+    case 'CHECKBOX': created = form.addCheckboxItem(); break;
+    case 'SECTION_HEADER': created = form.addSectionHeaderItem(); break;
+    default: throw new Error('Nieznany typ pola formularza: ' + spec.type);
+  }
+  created.setTitle(spec.title);
+  return form.getItemById(created.getId());
+}
+
+function applySpec_(item, spec) {
+  item.setHelpText(spec.helpText || '');
+  switch (spec.type) {
+    case 'TEXT': {
+      const text = item.asTextItem().setRequired(spec.required === true);
+      if (spec.validationPattern) text.setValidation(FormApp.createTextValidation().setHelpText(spec.validationHelp || '').requireTextMatchesPattern(spec.validationPattern).build());
+      break;
+    }
+    case 'PARAGRAPH_TEXT':
+      item.asParagraphTextItem().setRequired(spec.required === true);
+      break;
+    case 'MULTIPLE_CHOICE': {
+      const choice = item.asMultipleChoiceItem().setRequired(spec.required === true);
+      choice.setChoices(spec.choices.map(value => choice.createChoice(value)));
+      break;
+    }
+    case 'CHECKBOX': {
+      const checkbox = item.asCheckboxItem().setRequired(spec.required === true);
+      checkbox.setChoices(spec.choices.map(value => checkbox.createChoice(value)));
+      break;
+    }
+    case 'SECTION_HEADER':
+      break;
+  }
 }
 
 function ensureDestination_(form) {

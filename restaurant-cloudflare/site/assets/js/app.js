@@ -27,13 +27,13 @@
   function renderMenu() {
     const groups = state.data?.menus?.[state.active] || [];
     const needle = state.search.trim().toLocaleLowerCase('pl');
-    const filtered = groups.map(group => ({...group, items:(group.items || []).filter(item => !needle || `${item.name} ${item.description}`.toLocaleLowerCase('pl').includes(needle))})).filter(group => group.items.length);
+    const filtered = groups.map(group => ({...group, items:(group.items || []).filter(item => !needle || `${item.name} ${item.description} ${(item.labels || []).join(' ')}`.toLocaleLowerCase('pl').includes(needle))})).filter(group => group.items.length);
     if (!filtered.length) {
       const messages = {lunch:'Menu lunchowe nie zostało jeszcze opublikowane. Zapytaj telefonicznie o dzisiejszy lunch.',seasonal:'Obecnie nie ma aktywnej oferty sezonowej.',fixed:'Nie znaleziono pasujących pozycji.'};
       menuContent.innerHTML = `<div class="empty-state"><p>${escapeHtml(messages[state.active])}</p><a href="tel:${escapeHtml(config.phone || '+48573515121')}">Zadzwoń: 573 515 121</a></div>`;
       return;
     }
-    menuContent.innerHTML = filtered.map(group => `<section class="menu-category"><h3>${escapeHtml(group.category)}</h3><div class="menu-grid">${group.items.map(item => `<article class="menu-item"><h4>${escapeHtml(item.name)}</h4><span class="price">${escapeHtml(item.price)}</span>${item.description ? `<p>${escapeHtml(item.description)}</p>` : ''}</article>`).join('')}</div></section>`).join('');
+    menuContent.innerHTML = filtered.map(group => `<section class="menu-category"><h3>${escapeHtml(group.category)}</h3><div class="menu-grid">${group.items.map(item => `<article class="menu-item"><h4>${escapeHtml(item.name)}</h4><span class="price">${escapeHtml(item.price)}</span>${item.description ? `<p>${escapeHtml(item.description)}</p>` : ''}${(item.labels || []).length ? `<p class="labels">${item.labels.map(label => `<span>${escapeHtml(label)}</span>`).join('')}</p>` : ''}</article>`).join('')}</div></section>`).join('');
   }
 
   document.querySelectorAll('[data-menu-tab]').forEach(button => button.addEventListener('click', () => {

@@ -77,9 +77,10 @@ Formularz zamówień (płatność przy odbiorze – gotówką lub kartą) tworzy
 1. W edytorze Apps Script uruchom funkcję `setupOrderForm` i zaakceptuj uprawnienia (Formularze, Arkusze).
 2. Skrypt utworzy formularz z pozycjami z trzech arkuszy menu oraz arkusz „Na Ostrzu Noża – Zamówienia (odpowiedzi)”, do którego trafiają zamówienia.
 3. Z dziennika (Logger) skopiuj `Adres dla config.js (orderFormUrl)` i wklej go w `site/assets/js/config.js` jako `orderFormUrl`.
-4. Po każdej zmianie menu uruchom `setupOrderForm` ponownie, aby zsynchronizować listę dań, albo włącz codzienną synchronizację funkcją `createDailyFormSyncTrigger`.
+4. Wdróż stronę ponownie (`npm run deploy` albo commit i push przy integracji Git) – `config.js` to plik statyczny, więc zmiana adresu formularza pojawia się dopiero po nowym wdrożeniu.
+5. Po każdej zmianie menu uruchom `setupOrderForm` ponownie, aby zsynchronizować listę dań, albo włącz codzienną synchronizację funkcją `createDailyFormSyncTrigger`. Synchronizacja aktualizuje pytania w miejscu, więc kolumny w arkuszu odpowiedzi pozostają spójne.
 
-Analogicznie można podłączyć formularz rezerwacji (`reservationFormUrl`).
+Analogicznie można podłączyć formularz rezerwacji (`reservationFormUrl` – tu również po zmianie potrzebne jest nowe wdrożenie).
 
 ## 6. Domena
 
@@ -90,7 +91,7 @@ Po udanym wdrożeniu dodaj `restauracjanaostrzunoza.pl` jako domenę niestandard
 - uzupełnij regulamin i politykę prywatności zgodnie z rzeczywistym procesem zamówień;
 - dodaj dane przedsiębiorcy i zasady dostawy, płatności, anulowania i reklamacji;
 - zweryfikuj ceny i skład wszystkich dań;
-- dodaj pełne oznaczenia alergenów do pozycji (kolumna `Oznaczenia`);
+- dodaj pełne oznaczenia alergenów do pozycji (kolumna `Oznaczenia` – wyświetlane na stronie jako etykiety przy daniu i uwzględniane w wyszukiwarce menu);
 - sprawdź zgody i klauzulę informacyjną w Formularzu Google;
 - przetestuj zamówienie na telefonie i komputerze;
 - po pobraniu zdjęć usuń z CSP domenę `restaumatic-production.imgix.net`, aby odciąć zależność od Restaumatic.

@@ -23,7 +23,8 @@ Zasady:
 - każdy kolejny wiersz to jedna pozycja menu;
 - `Aktywne = nie` ukrywa pozycję (puste pole oznacza „tak”);
 - pozycje o identycznej `Kategorii` są grupowane w jedną sekcję;
-- `Oznaczenia` to lista po przecinku, np. `wege, ostre`;
+- `Oznaczenia` to lista po przecinku, np. `wege, ostre` – strona wyświetla je
+  jako etykiety przy pozycji menu;
 - można używać wielu kart (zakładek) w jednym arkuszu – wszystkie są czytane,
   a pierwszy wiersz każdej karty jest traktowany jako nagłówek;
 - w menu lunchowym jako kategorii najlepiej używać dni tygodnia
