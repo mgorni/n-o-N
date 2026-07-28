@@ -73,5 +73,32 @@
 
   document.querySelector('[data-social="facebook"]').href = config.facebookUrl || '#';
   document.querySelector('[data-social="instagram"]').href = config.instagramUrl || '#';
+
+  const adminCorner = document.querySelector('#admin-corner');
+  const adminInput = document.querySelector('#admin-corner-input');
+  const adminLinks = document.querySelector('#admin-corner-links');
+  const adminSheets = config.menuSheets || [];
+  function closeAdminCorner() { adminCorner.hidden = true; adminInput.value = ''; adminLinks.hidden = true; adminLinks.innerHTML = ''; }
+  document.addEventListener('click', event => {
+    const fromLeft = event.clientX;
+    const fromBottom = window.innerHeight - event.clientY;
+    if (fromLeft >= 10 && fromLeft <= 50 && fromBottom >= 10 && fromBottom <= 50) {
+      adminCorner.hidden = false;
+      adminInput.focus();
+    } else if (!adminCorner.hidden && !adminCorner.contains(event.target)) {
+      closeAdminCorner();
+    }
+  });
+  adminInput.addEventListener('input', () => {
+    if (adminInput.value.trim() === 'Gabriela' && adminSheets.length) {
+      adminLinks.innerHTML = adminSheets.map(sheet => `<li><a href="${escapeHtml(sheet.url)}" target="_blank" rel="noopener">${escapeHtml(sheet.label)}</a></li>`).join('');
+      adminLinks.hidden = false;
+    } else {
+      adminLinks.hidden = true;
+      adminLinks.innerHTML = '';
+    }
+  });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && !adminCorner.hidden) closeAdminCorner(); });
+
   loadMenu();
 })();
