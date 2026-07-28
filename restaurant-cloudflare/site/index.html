@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Na Ostrzu Noża, oryginalna kuchnia włoska przy ul. Przasnyskiej 5 w Warszawie. Menu stałe, lunchowe i sezonowe oraz zamówienia online.">
+  <meta name="theme-color" content="#151310">
+  <title>Na Ostrzu Noża | Oryginalna kuchnia włoska</title>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Na Ostrzu Noża","servesCuisine":"Italian","telephone":"+48 573 515 121","email":"restauracja.naostrzunoza@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Przasnyska 5","postalCode":"01-756","addressLocality":"Warszawa","addressCountry":"PL"},"openingHours":"Mo-Su 12:00-22:00"}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Przejdź do głównej treści</a>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Na Ostrzu Noża, strona główna">
+      <span class="brand-mark" aria-hidden="true">N</span>
+      <span><strong>Na Ostrzu Noża</strong><small>ristorante italiano</small></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav id="main-nav" aria-label="Główna nawigacja">
+      <a href="#o-nas">O nas</a><a href="#menu">Menu</a><a href="#galeria">Galeria</a><a href="#kontakt">Kontakt</a>
+      <button class="button button-small" data-open-form="order">Zamów</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-image" src="/assets/images/gallery-02.jpg" data-fallback="https://restaumatic-production.imgix.net/uploads/accounts/38691/media_library/e2f6b67b-6490-4e08-8770-6972b064f0ff.jpg?auto=compress%2Cformat&crop=focalpoint&fit=max&h=auto&w=1920" alt="Danie kuchni włoskiej podane w restauracji Na Ostrzu Noża">
+      <div class="hero-overlay"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Warszawa, Przasnyska 5</p>
+        <h1 id="hero-title">Oryginalna kuchnia włoska</h1>
+        <p>Wyjątkowa restauracja serwująca tradycyjne dania włoskie, które są aromatyczne i pełne smaku.</p>
+        <div class="hero-actions"><a class="button" href="#menu">Zobacz menu</a><button class="button button-outline" data-open-form="order">Zamów online</button></div>
+      </div>
+    </section>
+
+    <section class="info-strip" aria-label="Najważniejsze informacje">
+      <div><span>Godziny otwarcia</span><strong>codziennie 12:00–22:00</strong></div>
+      <div><span>Dostawa</span><strong>codziennie 12:00–21:30</strong></div>
+      <div><span>Telefon</span><a href="tel:+48573515121">573 515 121</a></div>
+    </section>
+
+    <section class="section intro" id="o-nas">
+      <div><p class="eyebrow">Na Ostrzu Noża</p><h2>Włoskie smaki na Żoliborzu</h2></div>
+      <div><p>Zapraszamy na pizzę, makarony, risotto, owoce morza, mięsa i desery. Menu sezonowe zmienia się wraz z dostępnością składników.</p><p>Możesz zjeść na miejscu, zamówić odbiór osobisty lub dostawę.</p></div>
+    </section>
+
+    <section class="section menu-section" id="menu" aria-labelledby="menu-title">
+      <div class="section-heading"><div><p class="eyebrow">Oferta</p><h2 id="menu-title">Menu</h2></div><p id="menu-status" role="status">Wczytywanie aktualnego menu…</p></div>
+      <div class="menu-toolbar">
+        <div class="tabs" role="tablist" aria-label="Rodzaj menu">
+          <button role="tab" aria-selected="true" data-menu-tab="fixed">Stałe</button>
+          <button role="tab" aria-selected="false" data-menu-tab="lunch">Lunchowe</button>
+          <button role="tab" aria-selected="false" data-menu-tab="seasonal">Sezonowe</button>
+        </div>
+        <label class="search-field"><span class="sr-only">Szukaj w menu</span><input id="menu-search" type="search" placeholder="Szukaj dania lub składnika"></label>
+      </div>
+      <div id="menu-content" class="menu-content" aria-live="polite"></div>
+      <div class="allergen-note"><strong>Alergeny:</strong> gluten, skorupiaki, jaja, ryby, orzeszki ziemne, soja, mleko/laktoza, orzechy, seler, gorczyca, sezam, dwutlenek siarki, łubin i mięczaki. Szczegółowe informacje uzyskasz u obsługi.</div>
+    </section>
+
+    <section class="order-band">
+      <div><p class="eyebrow">Zamówienia</p><h2>Zamów przez internet</h2><p>Wypełnij formularz zamówienia. Restauracja potwierdzi przyjęcie i poda przewidywany czas realizacji.</p></div>
+      <button class="button" data-open-form="order">Przejdź do zamówienia</button>
+    </section>
+
+    <section class="section" id="galeria" aria-labelledby="gallery-title">
+      <div class="section-heading"><div><p class="eyebrow">Galeria</p><h2 id="gallery-title">Prosto z naszej kuchni</h2></div></div>
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+
+    <section class="section contact" id="kontakt">
+      <div class="contact-card"><p class="eyebrow">Kontakt</p><h2>Napisz lub zadzwoń do nas</h2><address>Na Ostrzu Noża<br>Przasnyska 5<br>01-756 Warszawa</address><p><a href="tel:+48573515121">573 515 121</a><br><a href="mailto:restauracja.naostrzunoza@gmail.com">restauracja.naostrzunoza@gmail.com</a></p><div class="contact-actions"><button class="button" data-open-form="reservation">Rezerwacja</button><a class="button button-outline" href="https://www.google.com/maps/search/?api=1&query=Przasnyska+5+Warszawa" target="_blank" rel="noopener">Wyznacz trasę</a></div></div>
+      <iframe class="map" title="Mapa dojazdu do restauracji Na Ostrzu Noża" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Przasnyska+5,+Warszawa&output=embed"></iframe>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>Na Ostrzu Noża</strong><span>Oryginalna kuchnia włoska</span></div>
+    <div class="footer-links"><a href="/privacy.html">Polityka prywatności</a><a href="/terms.html">Regulamin zamówień</a><a href="/accessibility.html">Dostępność</a></div>
+    <div><a data-social="facebook" href="#">Facebook</a> · <a data-social="instagram" href="#">Instagram</a></div>
+  </footer>
+
+  <dialog id="form-dialog" aria-labelledby="form-title">
+    <div class="dialog-header"><h2 id="form-title">Formularz</h2><button class="dialog-close" aria-label="Zamknij">×</button></div>
+    <div id="form-placeholder" class="form-placeholder"></div>
+    <iframe id="form-frame" title="Formularz Google" loading="lazy"></iframe>
+  </dialog>
+
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

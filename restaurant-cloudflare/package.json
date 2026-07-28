@@ -1,0 +1,14 @@
+{
+  "name": "na-ostrzu-noza-cloudflare",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "assets": "node scripts/fetch-assets.mjs",
+    "build": "npm run assets",
+    "dev": "npx wrangler pages dev site --compatibility-date=2026-07-22",
+    "deploy": "npm run build && npx wrangler pages deploy site --project-name na-ostrzu-noza"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

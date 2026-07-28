@@ -1,0 +1,391 @@
+{
+  "updatedAt": "2026-07-22T00:00:00+02:00",
+  "source": "fallback",
+  "menus": {
+    "fixed": [
+      {
+        "category": "Pizze",
+        "items": [
+          {
+            "name": "Pizza Klasyczna - 1. Marinara",
+            "description": "sos pomidorowy, czosnek, oregano",
+            "price": "28,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 2. Margherita",
+            "description": "sos pomidorowy, mozzarella fior di latte, bazylia",
+            "price": "36,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 3. Bufala Classica Caprese",
+            "description": "sos pomidorowy, mozzarella di bufala, bazylia, pomidorki cherry, Grana Padano",
+            "price": "48,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 4. Salami abruzzese",
+            "description": "sos pomidorowy, mozzarella fior di latte, kiełbasa nduja, salami abruzzese, por, czerwona cebula",
+            "price": "48,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 5. Salami Milano",
+            "description": "sos pomidorowy, mozzarella fior di latte, Salami Milano",
+            "price": "44,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 6. Spinaci",
+            "description": "sos pomidorowy, mozzarella fior di latte, ser kozi, szpinak, figi, miodowo-cytrynowe pesto z pietruszki, pomidorki cherry",
+            "price": "49,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 7. Vegeteriana",
+            "description": "sos pomidorowy, mozzarella fior di latte, szpinak, papryka, pieczarki portobello, cebula czerwona, pomidorki cherry, karczochy, grillowany bakłażan, grillowana cukinia",
+            "price": "48,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 8. Salami Calabrese",
+            "description": "sos pomidorowy, mozzarella fior di latte, Salami Calabrese picante, czarne oliwki, marynowane pepperoni",
+            "price": "47,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 9. Salsiccia e cipolla",
+            "description": "sos pomidorowy, mozzarella fior di latte, kiełbasa Salsiccia Toscana, cebula czerwona",
+            "price": "46,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 10. Rucola e prosciutto",
+            "description": "sos pomidorowy, mozzarella fior di latte, prosciutto crudo, pomidorki cherry, Grana Padano, rukola",
+            "price": "49,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 11. Capriciosa",
+            "description": "sos pomidorowy, mozzarella fior di latte, szynka Cotto, pieczarki portobello, czarne oliwki",
+            "price": "47,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 12. Gamberi",
+            "description": "sos pomidorowy, mozzarella fior di latte, krewetki marynowane w oliwie, chilli, czosnku i kolendrze",
+            "price": "54,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 13. Cipolla balsamica carmellata",
+            "description": "sos pomidorowy, mozzarella fior di latte, Salami Abruzzese, karmelizowana balsamiczna cebula",
+            "price": "47,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 14. Tonno",
+            "description": "sos pomidorowy, mozzarella fior di latte, pomidor, tuńczyk, cebula czerwona, czarne oliwki, oregano, natka pietruszki",
+            "price": "48,00 zł"
+          },
+          {
+            "name": "Pizza Klasyczna - 15. Spianata",
+            "description": "sos pomidorowy, mozzarella fior di latte, spianata picante, gorgonzola, rukola",
+            "price": "48,00 zł"
+          },
+          {
+            "name": "Pizza Biała - 1. Nduja",
+            "description": "mozzarella fior di latte, boczek Pancetta, kiełbasa nduja, Provola, Grana Padano",
+            "price": "47,00 zł"
+          },
+          {
+            "name": "Pizza Biała - 2. Quattro formaggi",
+            "description": "mozzarella fior di latte, Gorgonzola, ser kozi, Provola, Grana Padano",
+            "price": "51,00 zł"
+          },
+          {
+            "name": "Pizza Biała - 3. Pera",
+            "description": "mozzarella fior di latte, Gorgonzola, gruszka, orzechy włoskie, dressing pomarańczowy",
+            "price": "48,00 zł"
+          },
+          {
+            "name": "Pizza Biała - 4. Carciofi e funghi",
+            "description": "mozzarella fior di latte, karczochy, pieczarki portobello, Grana Padano",
+            "price": "46,00 zł"
+          }
+        ]
+      },
+      {
+        "category": "Przystawki",
+        "items": [
+          {
+            "name": "Focaccia",
+            "description": "",
+            "price": "25,00 zł"
+          },
+          {
+            "name": "Tatar z wołowiny",
+            "description": "podany z korniszonem, cebulą, musztardą francuską, kaparami i żółtkiem",
+            "price": "51,00 zł"
+          },
+          {
+            "name": "Tatar z tuńczyka",
+            "description": "podany z salsą z mango i awokado",
+            "price": "49,00 zł"
+          },
+          {
+            "name": "Fritto Misto",
+            "description": "smażone w panierce krewetki, kalmary, dorsz podane z pietruszkowym i majonezowym dressingiem",
+            "price": "53,00 zł"
+          },
+          {
+            "name": "Deska serów i wędlin 2 os.",
+            "description": "Provolone dolce, Parmiggiano Reggiano, Pecorino Romano, Salami Spianata, Prosciutto Crudo, Salami Milano, oliwki, pomidorki konfitowane, prażone orzeszki pinii",
+            "price": "52,00 zł"
+          },
+          {
+            "name": "Deska serów i wędlin 4 os.",
+            "description": "Provolone dolce, Parmiggiano Reggiano, Pecorino Romano, Salami Spianata, Prosciutto Crudo, Salami Milano, oliwki, pomidorki konfitowane, prażone orzeszki pinii",
+            "price": "72,00 zł"
+          },
+          {
+            "name": "Focaccia caprese",
+            "description": "mozzarella di bufala, pomidor, kapary, orzeszki pinii, rukola",
+            "price": "42,00 zł"
+          }
+        ]
+      },
+      {
+        "category": "Sałatki",
+        "items": [
+          {
+            "name": "Sałata ze smażonym kozim serem",
+            "description": "smażony kozi ser, grillowane warzywa, rukola, bazylia, figa, dressing orzechowy",
+            "price": "46,00 zł"
+          },
+          {
+            "name": "Sałata z owocami morza",
+            "description": "miks sałat, krewetki, ośmiornica, kalmary, małże, sos pomarańczowo-fenkułowy, podana z bułeczką czosnkową",
+            "price": "62,00 zł"
+          },
+          {
+            "name": "Sałata Cezar z kurczakiem",
+            "description": "miks sałat, boczek, kurczak, pomidorki cherry, sos cezar, grzanki, Parmigiano Reggiano, bułeczka z pieca",
+            "price": "47,00 zł"
+          },
+          {
+            "name": "Sałata z burratą",
+            "description": "miks sałat, bazylia, prażone orzeszki pinii, pomidorki cherry, szynka parmeńska, ocet balsamiczny",
+            "price": "48,00 zł"
+          },
+          {
+            "name": "Sałata Cezar z krewetkami",
+            "description": "miks sałat, boczek, krewetki, pomidorki cherry, sos cezar, grzanki, Parmigiano Reggiano, bułeczka z pieca",
+            "price": "57,00 zł"
+          }
+        ]
+      },
+      {
+        "category": "Zupy",
+        "items": [
+          {
+            "name": "Rosół z kaczki podany z ravioli z kaczką",
+            "description": "",
+            "price": "26,00 zł"
+          },
+          {
+            "name": "Pappa al pomodoro",
+            "description": "",
+            "price": "25,00 zł"
+          },
+          {
+            "name": "Ligurysjka zupa rybna",
+            "description": "mule, ośmiornica, kalmary, małże, krewetki, morska ryba, gotowana z warzywami z nutą pomarańczy i bazylii, podana z bułeczką z pieca",
+            "price": "51,00 zł"
+          }
+        ]
+      },
+      {
+        "category": "Makarony i risotto",
+        "items": [
+          {
+            "name": "Spaghetti cacio e pepe",
+            "description": "",
+            "price": "48,00 zł"
+          },
+          {
+            "name": "Spaghetti carbonara",
+            "description": "",
+            "price": "48,00 zł"
+          },
+          {
+            "name": "Spaghetti al pomodoro",
+            "description": "",
+            "price": "32,00 zł"
+          },
+          {
+            "name": "Czarne tagliatelle z owocami morza i mulami",
+            "description": "",
+            "price": "58,00 zł"
+          },
+          {
+            "name": "Tagliatelle z krewetkami i pistacjami",
+            "description": "",
+            "price": "56,00 zł"
+          },
+          {
+            "name": "Gnocchi z kurczakiem i suszonymi pomidorami",
+            "description": "",
+            "price": "48,00 zł"
+          },
+          {
+            "name": "Gnocchi z kozim serem i truflami, w palonym maśle i paście truflowej",
+            "description": "",
+            "price": "53,00 zł"
+          },
+          {
+            "name": "Gnocchi alla sorentina",
+            "description": "zapiekane gnocchi z mozzarellą, bazylią i sosem pomidorowym",
+            "price": "45,00 zł"
+          },
+          {
+            "name": "Risotto z kurczakiem, suszonymi pomidorami i oliwkami",
+            "description": "",
+            "price": "53,00 zł"
+          }
+        ]
+      },
+      {
+        "category": "Drugie dania",
+        "items": [
+          {
+            "name": "Filet z kurczaka z ravioli ze szpinakiem i ricottą",
+            "description": "w sosie estragonowym z porem, suszonymi grzybami, miodem i winem",
+            "price": "64,00 zł"
+          },
+          {
+            "name": "Filet z kaczki",
+            "description": "w sosie z cebuli, fig i porto, podany ze szpinakiem i risini",
+            "price": "69,00 zł"
+          },
+          {
+            "name": "Dorada alla puttanesca",
+            "description": "filety z dorady duszonej w winie z anchois, kaparami i oliwkami, podane z pieczywem",
+            "price": "65,00 zł"
+          },
+          {
+            "name": "Krewetki z chorizo i brandy",
+            "description": "z ndują, pomidorkami cherry i czerwoną cebulą, podane z bułeczką z pieca",
+            "price": "65,00 zł"
+          },
+          {
+            "name": "Parmigiana z bakłażanów",
+            "description": "zapiekanka z bakłażana, mozzarelli i pomidorów, przyprawiona czosnkiem i bazylią",
+            "price": "51,00 zł"
+          },
+          {
+            "name": "Smażona polędwica z dorsza",
+            "description": "podana z puree i słodko-kwaśną duszoną sałatką z grzybów, pora, papryki i cykorii",
+            "price": "66,00 zł"
+          }
+        ]
+      },
+      {
+        "category": "Burgery",
+        "items": [
+          {
+            "name": "Burger Klasyczny",
+            "description": "wołowina, ser Provolone, sałata, pomidor, korniszon, karmelizowana cebula, sos cezar, sos na bazie pomidorów i czarnej porzeczki, podany z frytkami",
+            "price": "59,00 zł"
+          },
+          {
+            "name": "Burger Morski",
+            "description": "smażony stek z polędwicy z tuńczyka, smażone krewetki, salsa z mango i awokado, sałata, sos musztardowy z gruszką, podany z chipsami warzywnymi",
+            "price": "66,00 zł"
+          }
+        ]
+      },
+      {
+        "category": "Desery",
+        "items": [
+          {
+            "name": "Sernik",
+            "description": "",
+            "price": "26,00 zł"
+          },
+          {
+            "name": "Tiramisu",
+            "description": "",
+            "price": "27,00 zł"
+          },
+          {
+            "name": "Pannacotta",
+            "description": "",
+            "price": "25,00 zł"
+          }
+        ]
+      },
+      {
+        "category": "Steki",
+        "items": [
+          {
+            "name": "Stek z polędwicy wołowej",
+            "description": "z sosem maderowym, podany z frytkami i sałatką z pomidorków cherry, rukoli, czerwonej cebuli i octu balsamicznego",
+            "price": "119,00 zł"
+          }
+        ]
+      }
+    ],
+    "lunch": [],
+    "seasonal": [
+      {
+        "category": "Oferta sezonowa",
+        "items": [
+          {
+            "name": "Sałatka z grillowanego ogórka",
+            "description": "grillowany zielony ogórek marynowany w aromatycznym dressingu z koperku, pikantnej papryczki peperoni, czosnku i cytryny w oliwie, podawany z bryndzą, kozim serem, grecką fetą, granatem i bułeczką z pieca",
+            "price": "45,00 zł"
+          },
+          {
+            "name": "Placki ziemniaczane z sosem kurkowym",
+            "description": "podawane z rukolą i szynką parmeńską",
+            "price": "46,00 zł"
+          },
+          {
+            "name": "Filet z sandacza z fasolką szparagową",
+            "description": "przyrządzony w białym winie z dodatkiem pora, czosnku, chili, fasolki szparagowej i pomidorków cherry, podany z grillowanymi ziemniakami",
+            "price": "82,00 zł"
+          },
+          {
+            "name": "Czarne tagliatelle z krewetkami i bobem",
+            "description": "z pikantną spianatą w sosie maślanym z koperkiem",
+            "price": "62,00 zł"
+          },
+          {
+            "name": "Tagliatelle z pancettą i bobem",
+            "description": "z cebulą i czosnkiem w kremowym sosie na bazie śmietanki, mascarpone i parmezanu",
+            "price": "55,00 zł"
+          },
+          {
+            "name": "Spaghetti z bobem",
+            "description": "z koperkiem, czosnkiem, chili, sosem pomidorowym i parmezanem",
+            "price": "47,00 zł"
+          },
+          {
+            "name": "Risotto z kurczakiem i kurkami",
+            "description": "",
+            "price": "62,00 zł"
+          },
+          {
+            "name": "Pizza Finferli con pollo",
+            "description": "mozzarella fior di latte, duszone kurki z cebulą i czosnkiem, kurczak, masło ziołowo-czosnkowe",
+            "price": "52,00 zł"
+          },
+          {
+            "name": "Pizza Finferli Wege",
+            "description": "mozzarella fior di latte, duszone kurki z cebulą i czosnkiem, burrata, trufla",
+            "price": "56,00 zł"
+          },
+          {
+            "name": "Chłodnik litewski z jajkiem",
+            "description": "chłodnik z buraków, świeżego ogórka, rzodkiewki, koperku, szczypiorku i czosnku, serwowany z jajkiem",
+            "price": "32,00 zł"
+          },
+          {
+            "name": "Stek z rostbefu",
+            "description": "około 250 g, z sosem kurkowym, grillowanymi ziemniakami i sałatką ze świeżych warzyw",
+            "price": "109,00 zł"
+          }
+        ]
+      }
+    ]
+  }
+}
