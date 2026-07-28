@@ -25,9 +25,9 @@ Stan źródła sprawdzony 22 lipca 2026 r.
 
 ## Elementy wymagające decyzji lub danych
 
-- link do Formularza Google do zamówień;
+- link do Formularza Google do zamówień (formularz tworzy `google-apps-script/OrderForm.gs`; po uruchomieniu `setupOrderForm` wklej adres do `config.js`);
 - opcjonalny link do Formularza Google do rezerwacji;
-- trzy identyfikatory Dokumentów Google;
+- ~~trzy identyfikatory Dokumentów Google~~ – zastąpione Arkuszami Google, identyfikatory w `google-sheets-templates/README.md`;
 - dane przedsiębiorcy do dokumentów prawnych;
 - zasady i koszt dostawy, minimalna wartość zamówienia, dostępne płatności;
 - pełne przypisanie alergenów do konkretnych pozycji;
