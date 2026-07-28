@@ -12,7 +12,7 @@
       const response = await fetch(config.menuApiUrl || '/api/menu', {headers:{'Accept':'application/json'}});
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       state.data = await response.json();
-      source = 'Dokumentów Google';
+      source = 'Arkuszy Google';
     } catch (error) {
       const fallback = await fetch('/assets/data/menu-fallback.json');
       state.data = await fallback.json();

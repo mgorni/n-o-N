@@ -1,6 +1,6 @@
 # Na Ostrzu Noża – strona na Cloudflare Pages
 
-Gotowy projekt statycznej strony restauracji z dynamicznym menu z Dokumentów Google i zamówieniami przez Formularze Google.
+Gotowy projekt statycznej strony restauracji z dynamicznym menu z Arkuszy Google i zamówieniami przez Formularz Google (płatność przy odbiorze).
 
 ## Co zawiera
 
@@ -9,8 +9,8 @@ Gotowy projekt statycznej strony restauracji z dynamicznym menu z Dokumentów Go
 - galerię siedmiu zdjęć z manifestem migracyjnym;
 - lokalną kopię menu używaną awaryjnie;
 - Cloudflare Pages Function `/api/menu`;
-- Google Apps Script odczytujący trzy Dokumenty Google;
-- miejsca na Formularz Google do zamówień i rezerwacji;
+- Google Apps Script odczytujący trzy Arkusze Google (`Code.gs`);
+- Google Apps Script budujący formularz zamówień z pozycji menu (`OrderForm.gs`);
 - robocze strony prawne, które trzeba uzupełnić przed publikacją.
 
 ## 1. Pobranie zdjęć
@@ -22,24 +22,34 @@ npm run assets
 
 Skrypt pobierze zdjęcia z dotychczasowej biblioteki Restaumatic do `site/assets/images`. Po pobraniu warto je zatwierdzić w repozytorium, aby nowa strona przestała zależeć od starego CDN.
 
-## 2. Dokumenty Google
+## 2. Arkusze Google
 
-Utwórz trzy Dokumenty Google na podstawie plików z katalogu `google-docs-templates` i w każdym wstaw tabelę z kolumnami:
+Trzy arkusze z menu są już utworzone i wypełnione danymi (szczegóły i format opisuje `google-sheets-templates/README.md`):
+
+| Menu | Identyfikator arkusza |
+|---|---|
+| Stałe | `1rbsy_LTrQpMou2b0mHdFtgpIduT9EHvAScWYC_kkgWM` |
+| Sezonowe | `1jh0NNFqM5M3ekrPkv5MS7ljTfr9CeRLOHcw6DLf4OkY` |
+| Lunchowe | `19QXSmZqUhQ6w6rwkdPVhJ-VzNa6iXz7ckxDJaNC3SQ0` |
+
+Każdy arkusz ma kolumny:
 
 `Kategoria | Nazwa | Opis | Cena | Oznaczenia | Aktywne`
 
-Skopiuj identyfikatory dokumentów z adresów URL.
+Menu lunchowe zawiera wiersze przykładowe z `Aktywne = nie` – po wpisaniu prawdziwego lunchu zmień na `tak`.
 
 ## 3. Google Apps Script
 
-1. Utwórz nowy projekt Apps Script.
-2. Wklej `google-apps-script/Code.gs` i `appsscript.json`.
+1. Utwórz nowy projekt Apps Script (script.google.com) na tym samym koncie Google, na którym są arkusze.
+2. Wklej `google-apps-script/Code.gs`, `google-apps-script/OrderForm.gs` i `appsscript.json`.
 3. W ustawieniach projektu dodaj właściwości skryptu:
-   - `MENU_DOC_ID`
-   - `LUNCH_DOC_ID`
-   - `SEASONAL_DOC_ID`
+   - `MENU_SHEET_ID` = `1rbsy_LTrQpMou2b0mHdFtgpIduT9EHvAScWYC_kkgWM`
+   - `SEASONAL_SHEET_ID` = `1jh0NNFqM5M3ekrPkv5MS7ljTfr9CeRLOHcw6DLf4OkY`
+   - `LUNCH_SHEET_ID` = `19QXSmZqUhQ6w6rwkdPVhJ-VzNa6iXz7ckxDJaNC3SQ0`
 4. Wdróż jako aplikację internetową wykonywaną jako właściciel, z dostępem dla każdego użytkownika mającego link.
 5. Skopiuj adres wdrożenia kończący się `/exec`.
+
+Po zmianie menu w arkuszach nowe dane pojawią się na stronie automatycznie (cache do kilku minut). Funkcja `clearMenuCache` czyści cache ręcznie.
 
 ## 4. Cloudflare
 
@@ -60,13 +70,16 @@ Lub połącz repozytorium z Cloudflare Pages:
 - Build command: `npm run build`
 - Build output directory: `site`
 
-## 5. Formularze Google
+## 5. Formularz zamówień
 
-Opublikuj formularz zamówień. Skopiuj adres z kodu osadzenia, zwykle w formacie:
+Formularz zamówień (płatność przy odbiorze – gotówką lub kartą) tworzy i aktualizuje skrypt `OrderForm.gs`:
 
-`https://docs.google.com/forms/d/e/.../viewform?embedded=true`
+1. W edytorze Apps Script uruchom funkcję `setupOrderForm` i zaakceptuj uprawnienia (Formularze, Arkusze).
+2. Skrypt utworzy formularz z pozycjami z trzech arkuszy menu oraz arkusz „Na Ostrzu Noża – Zamówienia (odpowiedzi)”, do którego trafiają zamówienia.
+3. Z dziennika (Logger) skopiuj `Adres dla config.js (orderFormUrl)` i wklej go w `site/assets/js/config.js` jako `orderFormUrl`.
+4. Po każdej zmianie menu uruchom `setupOrderForm` ponownie, aby zsynchronizować listę dań, albo włącz codzienną synchronizację funkcją `createDailyFormSyncTrigger`.
 
-Wklej go w `site/assets/js/config.js` jako `orderFormUrl`. Analogicznie można podłączyć formularz rezerwacji.
+Analogicznie można podłączyć formularz rezerwacji (`reservationFormUrl`).
 
 ## 6. Domena
 
@@ -77,7 +90,7 @@ Po udanym wdrożeniu dodaj `restauracjanaostrzunoza.pl` jako domenę niestandard
 - uzupełnij regulamin i politykę prywatności zgodnie z rzeczywistym procesem zamówień;
 - dodaj dane przedsiębiorcy i zasady dostawy, płatności, anulowania i reklamacji;
 - zweryfikuj ceny i skład wszystkich dań;
-- dodaj pełne oznaczenia alergenów do pozycji;
+- dodaj pełne oznaczenia alergenów do pozycji (kolumna `Oznaczenia`);
 - sprawdź zgody i klauzulę informacyjną w Formularzu Google;
 - przetestuj zamówienie na telefonie i komputerze;
 - po pobraniu zdjęć usuń z CSP domenę `restaumatic-production.imgix.net`, aby odciąć zależność od Restaumatic.

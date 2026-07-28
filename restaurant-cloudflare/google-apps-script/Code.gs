@@ -1,35 +1,32 @@
 const TYPES = ['fixed', 'lunch', 'seasonal'];
-const PROPERTY_NAMES = {fixed:'MENU_DOC_ID', lunch:'LUNCH_DOC_ID', seasonal:'SEASONAL_DOC_ID'};
+const PROPERTY_NAMES = {fixed:'MENU_SHEET_ID', lunch:'LUNCH_SHEET_ID', seasonal:'SEASONAL_SHEET_ID'};
 
 function doGet() {
   try {
     const cache = CacheService.getScriptCache();
-    const cached = cache.get('menu-v1');
+    const cached = cache.get('menu-v2');
     if (cached) return output_(cached);
     const properties = PropertiesService.getScriptProperties();
     const menus = {};
     TYPES.forEach(type => {
       const id = properties.getProperty(PROPERTY_NAMES[type]);
-      menus[type] = id ? readMenuDocument_(id) : [];
+      menus[type] = id ? readMenuSpreadsheet_(id) : [];
     });
-    const result = JSON.stringify({updatedAt:new Date().toISOString(), source:'google-docs', menus});
-    cache.put('menu-v1', result, 60);
+    const result = JSON.stringify({updatedAt:new Date().toISOString(), source:'google-sheets', menus});
+    cache.put('menu-v2', result, 60);
     return output_(result);
   } catch (error) {
     return ContentService.createTextOutput(JSON.stringify({error:String(error), updatedAt:new Date().toISOString()})).setMimeType(ContentService.MimeType.JSON);
   }
 }
 
-function readMenuDocument_(documentId) {
-  const document = DocumentApp.openById(documentId);
-  const tables = document.getBody().getTables();
+function readMenuSpreadsheet_(spreadsheetId) {
+  const spreadsheet = SpreadsheetApp.openById(spreadsheetId);
   const groups = new Map();
-  tables.forEach(table => {
-    for (let rowIndex = 1; rowIndex < table.getNumRows(); rowIndex++) {
-      const row = table.getRow(rowIndex);
-      const values = [];
-      for (let cellIndex = 0; cellIndex < row.getNumCells(); cellIndex++) values.push(row.getCell(cellIndex).getText().trim());
-      const [category, name, description, price, labels, active] = values;
+  spreadsheet.getSheets().forEach(sheet => {
+    const rows = sheet.getDataRange().getDisplayValues();
+    for (let rowIndex = 1; rowIndex < rows.length; rowIndex++) {
+      const [category, name, description, price, labels, active] = rows[rowIndex].map(value => String(value || '').trim());
       if (!category || !name || String(active || 'tak').toLowerCase() === 'nie') continue;
       if (!groups.has(category)) groups.set(category, []);
       groups.get(category).push({name, description:description || '', price:price || '', labels:(labels || '').split(',').map(x=>x.trim()).filter(Boolean)});
@@ -43,5 +40,5 @@ function output_(json) {
 }
 
 function clearMenuCache() {
-  CacheService.getScriptCache().remove('menu-v1');
+  CacheService.getScriptCache().remove('menu-v2');
 }

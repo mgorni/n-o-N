@@ -1,0 +1,56 @@
+Kategoria,Nazwa,Opis,Cena,Oznaczenia,Aktywne
+Pizze,Pizza Klasyczna - 1. Marinara,"sos pomidorowy, czosnek, oregano","28,00 zł",,tak
+Pizze,Pizza Klasyczna - 2. Margherita,"sos pomidorowy, mozzarella fior di latte, bazylia","36,00 zł",,tak
+Pizze,Pizza Klasyczna - 3. Bufala Classica Caprese,"sos pomidorowy, mozzarella di bufala, bazylia, pomidorki cherry, Grana Padano","48,00 zł",,tak
+Pizze,Pizza Klasyczna - 4. Salami abruzzese,"sos pomidorowy, mozzarella fior di latte, kiełbasa nduja, salami abruzzese, por, czerwona cebula","48,00 zł",,tak
+Pizze,Pizza Klasyczna - 5. Salami Milano,"sos pomidorowy, mozzarella fior di latte, Salami Milano","44,00 zł",,tak
+Pizze,Pizza Klasyczna - 6. Spinaci,"sos pomidorowy, mozzarella fior di latte, ser kozi, szpinak, figi, miodowo-cytrynowe pesto z pietruszki, pomidorki cherry","49,00 zł",,tak
+Pizze,Pizza Klasyczna - 7. Vegeteriana,"sos pomidorowy, mozzarella fior di latte, szpinak, papryka, pieczarki portobello, cebula czerwona, pomidorki cherry, karczochy, grillowany bakłażan, grillowana cukinia","48,00 zł",,tak
+Pizze,Pizza Klasyczna - 8. Salami Calabrese,"sos pomidorowy, mozzarella fior di latte, Salami Calabrese picante, czarne oliwki, marynowane pepperoni","47,00 zł",,tak
+Pizze,Pizza Klasyczna - 9. Salsiccia e cipolla,"sos pomidorowy, mozzarella fior di latte, kiełbasa Salsiccia Toscana, cebula czerwona","46,00 zł",,tak
+Pizze,Pizza Klasyczna - 10. Rucola e prosciutto,"sos pomidorowy, mozzarella fior di latte, prosciutto crudo, pomidorki cherry, Grana Padano, rukola","49,00 zł",,tak
+Pizze,Pizza Klasyczna - 11. Capriciosa,"sos pomidorowy, mozzarella fior di latte, szynka Cotto, pieczarki portobello, czarne oliwki","47,00 zł",,tak
+Pizze,Pizza Klasyczna - 12. Gamberi,"sos pomidorowy, mozzarella fior di latte, krewetki marynowane w oliwie, chilli, czosnku i kolendrze","54,00 zł",,tak
+Pizze,Pizza Klasyczna - 13. Cipolla balsamica carmellata,"sos pomidorowy, mozzarella fior di latte, Salami Abruzzese, karmelizowana balsamiczna cebula","47,00 zł",,tak
+Pizze,Pizza Klasyczna - 14. Tonno,"sos pomidorowy, mozzarella fior di latte, pomidor, tuńczyk, cebula czerwona, czarne oliwki, oregano, natka pietruszki","48,00 zł",,tak
+Pizze,Pizza Klasyczna - 15. Spianata,"sos pomidorowy, mozzarella fior di latte, spianata picante, gorgonzola, rukola","48,00 zł",,tak
+Pizze,Pizza Biała - 1. Nduja,"mozzarella fior di latte, boczek Pancetta, kiełbasa nduja, Provola, Grana Padano","47,00 zł",,tak
+Pizze,Pizza Biała - 2. Quattro formaggi,"mozzarella fior di latte, Gorgonzola, ser kozi, Provola, Grana Padano","51,00 zł",,tak
+Pizze,Pizza Biała - 3. Pera,"mozzarella fior di latte, Gorgonzola, gruszka, orzechy włoskie, dressing pomarańczowy","48,00 zł",,tak
+Pizze,Pizza Biała - 4. Carciofi e funghi,"mozzarella fior di latte, karczochy, pieczarki portobello, Grana Padano","46,00 zł",,tak
+Przystawki,Focaccia,,"25,00 zł",,tak
+Przystawki,Tatar z wołowiny,"podany z korniszonem, cebulą, musztardą francuską, kaparami i żółtkiem","51,00 zł",,tak
+Przystawki,Tatar z tuńczyka,podany z salsą z mango i awokado,"49,00 zł",,tak
+Przystawki,Fritto Misto,"smażone w panierce krewetki, kalmary, dorsz podane z pietruszkowym i majonezowym dressingiem","53,00 zł",,tak
+Przystawki,Deska serów i wędlin 2 os.,"Provolone dolce, Parmiggiano Reggiano, Pecorino Romano, Salami Spianata, Prosciutto Crudo, Salami Milano, oliwki, pomidorki konfitowane, prażone orzeszki pinii","52,00 zł",,tak
+Przystawki,Deska serów i wędlin 4 os.,"Provolone dolce, Parmiggiano Reggiano, Pecorino Romano, Salami Spianata, Prosciutto Crudo, Salami Milano, oliwki, pomidorki konfitowane, prażone orzeszki pinii","72,00 zł",,tak
+Przystawki,Focaccia caprese,"mozzarella di bufala, pomidor, kapary, orzeszki pinii, rukola","42,00 zł",,tak
+Sałatki,Sałata ze smażonym kozim serem,"smażony kozi ser, grillowane warzywa, rukola, bazylia, figa, dressing orzechowy","46,00 zł",,tak
+Sałatki,Sałata z owocami morza,"miks sałat, krewetki, ośmiornica, kalmary, małże, sos pomarańczowo-fenkułowy, podana z bułeczką czosnkową","62,00 zł",,tak
+Sałatki,Sałata Cezar z kurczakiem,"miks sałat, boczek, kurczak, pomidorki cherry, sos cezar, grzanki, Parmigiano Reggiano, bułeczka z pieca","47,00 zł",,tak
+Sałatki,Sałata z burratą,"miks sałat, bazylia, prażone orzeszki pinii, pomidorki cherry, szynka parmeńska, ocet balsamiczny","48,00 zł",,tak
+Sałatki,Sałata Cezar z krewetkami,"miks sałat, boczek, krewetki, pomidorki cherry, sos cezar, grzanki, Parmigiano Reggiano, bułeczka z pieca","57,00 zł",,tak
+Zupy,Rosół z kaczki podany z ravioli z kaczką,,"26,00 zł",,tak
+Zupy,Pappa al pomodoro,,"25,00 zł",,tak
+Zupy,Ligurysjka zupa rybna,"mule, ośmiornica, kalmary, małże, krewetki, morska ryba, gotowana z warzywami z nutą pomarańczy i bazylii, podana z bułeczką z pieca","51,00 zł",,tak
+Makarony i risotto,Spaghetti cacio e pepe,,"48,00 zł",,tak
+Makarony i risotto,Spaghetti carbonara,,"48,00 zł",,tak
+Makarony i risotto,Spaghetti al pomodoro,,"32,00 zł",,tak
+Makarony i risotto,Czarne tagliatelle z owocami morza i mulami,,"58,00 zł",,tak
+Makarony i risotto,Tagliatelle z krewetkami i pistacjami,,"56,00 zł",,tak
+Makarony i risotto,Gnocchi z kurczakiem i suszonymi pomidorami,,"48,00 zł",,tak
+Makarony i risotto,"Gnocchi z kozim serem i truflami, w palonym maśle i paście truflowej",,"53,00 zł",,tak
+Makarony i risotto,Gnocchi alla sorentina,"zapiekane gnocchi z mozzarellą, bazylią i sosem pomidorowym","45,00 zł",,tak
+Makarony i risotto,"Risotto z kurczakiem, suszonymi pomidorami i oliwkami",,"53,00 zł",,tak
+Drugie dania,Filet z kurczaka z ravioli ze szpinakiem i ricottą,"w sosie estragonowym z porem, suszonymi grzybami, miodem i winem","64,00 zł",,tak
+Drugie dania,Filet z kaczki,"w sosie z cebuli, fig i porto, podany ze szpinakiem i risini","69,00 zł",,tak
+Drugie dania,Dorada alla puttanesca,"filety z dorady duszonej w winie z anchois, kaparami i oliwkami, podane z pieczywem","65,00 zł",,tak
+Drugie dania,Krewetki z chorizo i brandy,"z ndują, pomidorkami cherry i czerwoną cebulą, podane z bułeczką z pieca","65,00 zł",,tak
+Drugie dania,Parmigiana z bakłażanów,"zapiekanka z bakłażana, mozzarelli i pomidorów, przyprawiona czosnkiem i bazylią","51,00 zł",,tak
+Drugie dania,Smażona polędwica z dorsza,"podana z puree i słodko-kwaśną duszoną sałatką z grzybów, pora, papryki i cykorii","66,00 zł",,tak
+Burgery,Burger Klasyczny,"wołowina, ser Provolone, sałata, pomidor, korniszon, karmelizowana cebula, sos cezar, sos na bazie pomidorów i czarnej porzeczki, podany z frytkami","59,00 zł",,tak
+Burgery,Burger Morski,"smażony stek z polędwicy z tuńczyka, smażone krewetki, salsa z mango i awokado, sałata, sos musztardowy z gruszką, podany z chipsami warzywnymi","66,00 zł",,tak
+Desery,Sernik,,"26,00 zł",,tak
+Desery,Tiramisu,,"27,00 zł",,tak
+Desery,Pannacotta,,"25,00 zł",,tak
+Steki,Stek z polędwicy wołowej,"z sosem maderowym, podany z frytkami i sałatką z pomidorków cherry, rukoli, czerwonej cebuli i octu balsamicznego","119,00 zł",,tak
