@@ -1,6 +1,6 @@
 window.RESTAURANT_CONFIG = {
   menuApiUrl: '/api/menu',
-  orderFormUrl: '',
+  orderFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfI7UhLaZAbG__KO_GGia-4-COBDXfQQyfmkDDuJbYdzg0i0w/viewform?embedded=true',
   reservationFormUrl: '',
   phone: '+48573515121',
   email: 'restauracja.naostrzunoza@gmail.com',
