@@ -89,6 +89,9 @@
       closeAdminCorner();
     }
   });
+  adminInput.addEventListener('keydown', event => {
+    if (event.key === 'Enter' && adminInput.value.trim() === 'Gabriela') window.location.href = '/admin.html';
+  });
   adminInput.addEventListener('input', () => {
     if (adminInput.value.trim() === 'Gabriela' && adminSheets.length) {
       adminLinks.innerHTML = adminSheets.map(sheet => `<li><a href="${escapeHtml(sheet.url)}" target="_blank" rel="noopener">${escapeHtml(sheet.label)}</a></li>`).join('');
