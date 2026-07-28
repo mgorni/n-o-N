@@ -82,7 +82,7 @@
   document.addEventListener('click', event => {
     const fromLeft = event.clientX;
     const fromBottom = window.innerHeight - event.clientY;
-    if (fromLeft >= 10 && fromLeft <= 50 && fromBottom >= 10 && fromBottom <= 50) {
+    if (fromLeft <= 50 && fromBottom <= 50) {
       adminCorner.hidden = false;
       adminInput.focus();
     } else if (!adminCorner.hidden && !adminCorner.contains(event.target)) {
